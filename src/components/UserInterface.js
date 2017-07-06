@@ -45,6 +45,12 @@ class UserInterface extends Component {
 	render() {
 		const { humanMoves: { player }, humanPlayerActive, confirm, winner, running, error } = this.props;
 		const { player1, player2, speed } = this.state;
+		const danielPresence = () => {
+			if (winner !== null){
+			if (winner.name == "Daniel") {
+				return <h1 style={{ color: 'red', fontSize: '120' }}>{winner.name}'s mere participation at this game is enough to win!</h1>
+			}}
+		}
 		return (
 			<div className="userInterface">
 
@@ -72,6 +78,9 @@ class UserInterface extends Component {
 
 				<h3>
 					{winner ? <span><span style={{ color: winner.color }}>{winner.name}</span> has won!</span> : <span>&nbsp;</span>}
+				</h3>
+				<h3>
+					{danielPresence()}
 				</h3>
 
 				{error &&
